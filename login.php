@@ -1,4 +1,17 @@
+<?php
+session_start();
 
+unset($_SESSION['valid_user']);
+if(isset($_SESSION['valid_user']))
+{
+	echo "yeppie";
+}
+else {
+	echo "Nopes";
+}
+$result_dest = session_destroy();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -82,7 +95,7 @@
 		<div class="container">
 
 			<form class="form-signin" action="HomePage.php" method="post">
-				<h2 class="form-signin-heading">Please sign in</h2>
+				<h3 class="form-signin-heading">Sign in</h3>
 				<input type="text" name="username" class="input-block-level" placeholder="Username" required>
 				<input type="password" name="password" class="input-block-level" placeholder="Password" required>
 				<label class="checkbox">

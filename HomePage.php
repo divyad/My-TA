@@ -1,27 +1,21 @@
 <?php
-    
-    $host = "localhost";
-	$user = "root";
-	$pass = "";
-	$db = "myta_database";
-	$username="";
-	$odb = new PDO("mysql:host=" .$host . ";dbname=" .$db ,$user , $pass);
-	
+   
+   require_once('db_functions.php'); 
+  session_start();
+  
 	if(isset($_POST['username'])){
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-	
-	
-	$query= "select * from users where username = '".$username."' and password = '".$password."' limit 1";
-	$result = $odb->query($query);
-	
-	if($result->rowCount() == 1){
-		//echo "you have successfully logged in.";
-		//exit();
-	}else{
-		//echo "Invalid Login";
+	try{
+	login($username, $password) ;
+	$_SESSION['valid_user'] = $username;
 	}
+	catch(Exception $e)  {
+		 echo 'You could not be logged in.
+          You must be logged in to view this page.';
+		  exit();
 	}
+}
 ?>
 
 
@@ -63,7 +57,26 @@
               <li><a href="#contact">Contact</a></li>
               </ul>
             <form class="navbar-form pull-right" action="login.php">
-              <label class="span2" ><font color="White">Logged in as <?php  echo $username;?></font></label>
+              <label class="span2" ><font color="White">Logged in as 
+              <ul class="nav nav-pills">
+  <li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">	
+              	<?php  
+              if (isset($_SESSION['valid_user']))  {
+     				 echo  $_SESSION['valid_user'];
+  				}
+              ?>
+              
+          <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+    <a href="login.php"> Signout</a>
+    </ul>
+  </li>
+</ul>     
+              </font></label>
             </form>
           </div>
         </div>

@@ -1,9 +1,17 @@
-<?php $name = $_POST['name'];
+<?php 
+require_once('db_functions.php');
+session_start();
+
+$name = $_POST['name'];
 $fName = $_POST['inputFName'];
 $inputStd = $_POST['inputStd'];
 $inputAdd = $_POST['inputAdd'];
 $inputMob = $_POST['inputMob'];
 $inputEmail = $_POST['inputEmail'];
+$inputRoll = $_POST['inputRoll'];
+
+registerStudent($inputRoll,$name,$fName,$inputStd,$inputAdd,$inputMob,$inputEmail);
+
 ?>
 
 <!DOCTYPE html>
@@ -71,14 +79,9 @@ $inputEmail = $_POST['inputEmail'];
 					Print Confirmation Page
 				</center></h2></label><br />
 			<div class="control-group">
-				<label class="control-label" for="inputRoll">Roll No:</label>
+				<label class="control-label" for="inputRoll">Student:</label>
 				<div class="controls">
-					<label class="radio">
-						<input type="radio" name="optionsRadios" id="inputRoll1" value="option1">
-						Existing Student </label>
-					<label class="radio">
-						<input type="radio" name="optionsRadios" id="inputRoll2" value="option2">
-						New Student </label>
+					<label ><?php  echo $inputRoll;?></label>
 				</div>
 			</div>
 			<div class="control-group">

@@ -1,4 +1,6 @@
-<?php $name = $_POST['inputName'];
+<?php 
+
+$name = $_POST['inputName'];
 $fName = $_POST['inputFName'];
 $inputStd = $_POST['inputStd'];
 $inputAdd = $_POST['inputAdd'];
@@ -67,7 +69,7 @@ $inputRoll = $_POST['optionsRadios'];
 			<br />
 			<br />
 			<div class="control-group">
-				<label class="control-label" for="inputRoll">Roll No:</label>
+				<label class="control-label" for="inputRoll">Student:</label>
 				<div class="controls">
 					<label ><?php  echo $inputRoll;?></label>
 				</div>
@@ -114,16 +116,16 @@ $inputRoll = $_POST['optionsRadios'];
 				<button type="submit" class="btn btn-primary">
 					Confirm Registration
 				</button>
-				<a class="btn" href="RegistrationForm.php">Modify Details&raquo;</a>
+				<a class="btn" href="#" onclick="this.href='RegistrationForm.php?name='+ document.getElementById('name').value +'&fName='+ document.getElementById('inputFName').value + '&inputStd=' + document.getElementById('inputStd').value + '&inputAdd=' + document.getElementById('inputAdd').value + '&inputMob=' + document.getElementById('inputMob').value + '&inputEmail=' + document.getElementById('inputEmail').value;">Modify Details&raquo;</a>
 			</div>
 			
-			<input type="hidden" name="name" value=<?php  echo $name;?>>
-			<input type="hidden" name="inputFName" value=<?php  echo $fName;?>>
-			<input type="hidden" name="inputStd" value=<?php  echo $inputStd;?>>
-			<input type="hidden" name="inputAdd" value=<?php  echo $inputAdd;?>>
-			<input type="hidden" name="inputMob" value=<?php  echo $inputMob;?>>
-			<input type="hidden" name="inputEmail" value=<?php  echo $inputEmail;?>>
-			<input type="hidden" name="inputRoll" value=<?php  echo $inputRoll;?>>
+			<input type="hidden" name="name" id="name" value=<?php  echo $name;?>>
+			<input type="hidden" name="inputFName" id="inputFName" value=<?php  echo $fName;?>>
+			<input type="hidden" name="inputStd" id="inputStd" value=<?php  echo $inputStd;?>>
+			<input type="hidden" name="inputAdd" id="inputAdd" value=<?php  echo $inputAdd;?>>
+			<input type="hidden" name="inputMob" id="inputMob" value=<?php  echo $inputMob;?>>
+			<input type="hidden" name="inputEmail" id="inputEmail"value=<?php  echo $inputEmail;?>>
+			<input type="hidden" name="inputRoll" id="inputRoll" value=<?php  echo $inputRoll;?>>
 			
 		</form>
 	</body>
