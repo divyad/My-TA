@@ -119,7 +119,11 @@ if(isset($_POST['inputRoll'])){ $inputRoll = $_POST['inputRoll'];}
 			<div class="control-group">
 				<label class="control-label" for="inputAdd">Address</label>
 				<div class="controls">
-					<textarea rows="5" name="inputAdd"></textarea>
+					<textarea rows="5" name="inputAdd" ><?php
+					
+					if(isset($_GET['inputAdd'])){ echo $_GET['inputAdd'];}
+					 
+					 ?></textarea>
 				</div>
 			</div>
 			<div class="control-group">
