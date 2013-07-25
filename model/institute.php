@@ -43,5 +43,34 @@ class institute {
 		}
 	}
 
+	static function fetchInstName($instId) {
+
+		$dbh = db_connect();
+
+		/*** set the PDO error mode to exception ***/
+		$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		/*** The SQL SELECT statement ***/
+		$sql = "SELECT institute_name FROM institute where institute_id = :instId";
+
+		/*** fetch into an PDOStatement object ***/
+		$stmt = $dbh -> prepare($sql);
+
+		/*** bind the paramaters ***/
+		$stmt -> bindParam(':instId', $instId, PDO::PARAM_STR, 255);
+
+		/*** execute the prepared statement ***/
+		$stmt -> execute();
+
+		/*** echo number of columns ***/
+		$result = $stmt -> fetchAll();
+		/*** loop of the results***/
+
+		foreach ($result as $row) {
+			return $row['institute_name'];
+		}
+
+	}
+
 }
 ?>

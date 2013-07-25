@@ -55,28 +55,14 @@ function validateRegFormData(){
 	
 }
 
+function Redirect($url, $permanent = false)
+{
+    if (headers_sent() === false)
+    {
+    	header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
+    }
 
-function findStudentByRoll($inputRoll) {
-	try {
-		$conn = db_connect();
-		$curr_user = $_SESSION['valid_user'];
-
-		$result = $conn -> query("select * from students where roll_num = '" . $inputRoll . "' ");
-
-		/*** echo number of columns ***/
-		$obj = $result -> fetch(PDO::FETCH_OBJ);
-
-		/*** loop over the object directly ***/
-		echo $obj -> roll_num . '<br />';
-		echo $obj -> stu_name . '<br />';
-		echo $obj -> f_name;
-
-		/*** close the database connection ***/
-		$conn = null;
-
-		return $obj;
-	} catch(PDOException $e) {
-		echo $e -> getMessage();
-	}
+    exit();
 }
+
 ?>

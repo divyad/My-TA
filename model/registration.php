@@ -34,9 +34,9 @@ class registration {
 
 		if ($this -> validateRegFormData($regObj)) {
 			//echo "Validation of form data successful";
-			if ($this -> insertStudent($regObj)) {
+			if ($this -> insertRegistration($regObj)) {
 				//echo 'Data entered successfully<br />';
-				$this -> insertRegistration($regObj);
+				$this -> insertStudent($regObj);
 			}
 		}
 
@@ -54,7 +54,7 @@ class registration {
 			/*** begin the transaction ***/
 			$conn -> beginTransaction();
 
-			$stmt = $conn -> prepare("insert into students(roll_num,stu_name,f_name,std,address,mob_num,email_id,institute,created_by) values (:inputRoll, :name, :fName, :inputStd, :inputAdd, :inputMob, :inputEmail,:institute, :currUser)");
+			$stmt = $conn -> prepare("insert into students(roll_num,student_name,father_name,standard,address,mobile_num,email_id,institute) values (:inputRoll, :name, :fName, :inputStd, :inputAdd, :inputMob, :inputEmail,:institute)");
 
 			/*** bind the paramaters ***/
 			$stmt -> bindParam(':inputRoll', $regObj -> studentType, PDO::PARAM_STR, 255);
@@ -65,7 +65,6 @@ class registration {
 			$stmt -> bindParam(':inputAdd', $regObj -> address, PDO::PARAM_LOB, 5);
 			$stmt -> bindParam(':inputMob', $regObj -> mobile, PDO::PARAM_INT);
 			$stmt -> bindParam(':inputEmail', $regObj -> email, PDO::PARAM_STR, 255);
-			$stmt -> bindParam(':currUser', $regObj -> currUser, PDO::PARAM_STR, 255);
 
 			/*** execute the prepared statement ***/
 			$stmt -> execute();
