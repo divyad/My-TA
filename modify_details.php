@@ -1,32 +1,30 @@
 <?php session_start();
 
-require_once ('model/institute.php');
-
-if (isset($_POST['name'])) { $name = $_POST['name'];
-}
-
-if (isset($_POST['inputFName'])) { $fName = $_POST['inputFName'];
-}
-if (isset($_POST['inputStd'])) { $inputStd = $_POST['inputStd'];
-}
-if (isset($_POST['inputAdd'])) { $inputAdd = $_POST['inputAdd'];
-}
-if (isset($_POST['inputMob'])) { $inputMob = $_POST['inputMob'];
-}
-if (isset($_POST['inputEmail'])) { $inputEmail = $_POST['inputEmail'];
-}
-if (isset($_POST['inputRoll'])) { $inputRoll = $_POST['inputRoll'];
-}
-
 require_once('/header.php');
 
+require_once ('model/institute.php');
 $instituteArr = institute::getInstituteList();
 
-unset($_SESSION['modifiedStatus']);
-unset($_SESSION['studentSearchArr']);
-unset($_SESSION['searchId']);
-?>
+if (isset($_SESSION['studentSearchArr'])) {
+	foreach ($_SESSION['studentSearchArr'] as $row) {
+		
+		$inputRoll = $row['roll_num'];
+		$name = $row['student_name'];
+		$fName = $row['father_name'];
+		$inputStd = $row['standard'];
+		$instDropDown = institute::fetchInstName($row['institute']);
+		$inputAdd = $row['address'];
+		$inputMob = $row['mobile_num'];
+		$inputEmail = $row['email_id'];
+		
+		if($_SESSION['searchId'] == $inputRoll){
+			break;
+		}
 
+	}
+}
+
+?>
 
 
 		<!--Basic Nav Tabs START -->
@@ -35,42 +33,38 @@ unset($_SESSION['searchId']);
 			<li>
 				<a href="homePage.php">Home</a>
 			</li>
-			<li class="active">
-				<a href="#">Registration</a>
+			<li >
+				<a href="registration_form.php">Registration</a>
 				</li>
-			<li>
-				<a href="student_search.php">Search</a>
+			<li class="active">
+				<a href="#">Search</a>
 			</li>
 
 		</ul>
 		<!--Basic Nav Tabs END -->
 
-		<form class="form-horizontal" action="registration_confirm.php" method="post">
+		<form class="form-horizontal" action="model/modify_controller.php" method="post">
 			<label><h2>
 				<center>
-					Registration Form
+					Modify Details
 				</center></h2></label>
 			<br />
 			<br />
 			<div class="control-group">
-				<label class="control-label" for="inputRoll">Student</label>
-				<div class="controls" >
-					<label class="radio">
-						<input type="radio" name="optionsRadios" id="inputRoll1" value="New" checked>
-						New </label>
-					<label class="radio">
-						<input type="radio" name="optionsRadios" id="inputRoll2" value="Existing">
-						Exists   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="text" class="search-query" placeholder="Search">
-					</label>
-
+					<label class="control-label" for="inputRoll">Roll No</label>
+				<div class="controls">
+					<input type="text" name="inputRoll" placeholder="Name"  disabled="disabled" required value="<?php
+					if (isset($inputRoll)) { echo $inputRoll;
+					}
+					?>">
+				</div>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputName">Name</label>
 				<div class="controls">
 					<input type="text" name="inputName" placeholder="Name" required value="<?php
-					if (isset($_GET['name'])) { echo $_GET['name'];
+					if (isset($name)) { echo $name;
 					}
 					?>">
 				</div>
@@ -79,7 +73,7 @@ unset($_SESSION['searchId']);
 				<label class="control-label" for="inputFName">Father's Name</label>
 				<div class="controls">
 					<input type="text" name="inputFName" placeholder="Father's Name" required value="<?php
-					if (isset($_GET['fName'])) { echo $_GET['fName'];
+					if (isset($fName)) { echo $fName;
 					}
 					?>">
 				</div>
@@ -88,7 +82,7 @@ unset($_SESSION['searchId']);
 				<label class="control-label" for="inputStd">Standard</label>
 				<div class="controls">
 					<input type="number" min="8" max="12" name="inputStd" placeholder="Standard" required value="<?php
-					if (isset($_GET['inputStd'])) { echo $_GET['inputStd'];
+					if (isset($inputStd)) { echo $inputStd;
 					}
 					?>">
 				</div>
@@ -113,7 +107,7 @@ unset($_SESSION['searchId']);
 				<label class="control-label" for="inputAdd">Address</label>
 				<div class="controls">
 					<textarea rows="5" name="inputAdd" ><?php
-					if (isset($_GET['inputAdd'])) { echo $_GET['inputAdd'];
+					if (isset($inputAdd)) { echo $inputAdd;
 					}
 					 ?></textarea>
 				</div>
@@ -124,7 +118,7 @@ unset($_SESSION['searchId']);
 					<div class="input-prepend">
 						<span class="add-on">91</span>
 						<input class="span2" name="inputMob" type="number"  Mobile Number" required value="<?php
-						if (isset($_GET['inputMob'])) { echo $_GET['inputMob'];
+						if (isset($inputMob)) { echo $inputMob;
 						}
 						?>">
 						</div>
@@ -137,7 +131,7 @@ unset($_SESSION['searchId']);
 						<span class="add-on"><i class="icon-envelope"></i></span>
 						<input class="span2" id="inputEmail" type="email" name="inputEmail" placeholder="test@abc.com" required value="<?php
 
-						if (isset($_GET['inputEmail'])) { echo $_GET['inputEmail'];
+						if (isset($inputEmail)) { echo $inputEmail;
 						}
 						?>">
 					</div>
@@ -145,10 +139,12 @@ unset($_SESSION['searchId']);
 			</div>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary">
-					Register
+					Modify
 				</button>
 				<a class="btn" href="HomePage.php">Cancel</a>
 			</div>
+			
+			<input type="hidden" name="inputRoll" id="inputRoll" value=<?php  echo $inputRoll;?>>
 		</form>
 
 	</body>

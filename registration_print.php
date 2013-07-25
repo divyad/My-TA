@@ -2,15 +2,14 @@
 require_once('model/registration.php');
 session_start();
 
+$inputRoll = $_POST['inputRoll'];
 $name = $_POST['name'];
 $fName = $_POST['inputFName'];
 $inputStd = $_POST['inputStd'];
 $inputAdd = $_POST['inputAdd'];
 $inputMob = $_POST['inputMob'];
 $inputEmail = $_POST['inputEmail'];
-$inputRoll = $_POST['inputRoll'];
 $instDropDown= $_POST['instituteDropdown'];
-echo $instDropDown;
 
 $regObj = new registration($inputRoll,$name,$fName,$inputStd,$instDropDown,$inputAdd,$inputMob,$inputEmail);
 $regObj->registerStudent($regObj);
@@ -61,11 +60,11 @@ $regObj->registerStudent($regObj);
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="Landing.html">My TA</a>
+					<a class="brand" href="landing_page.php">My TA</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active">
-								<a href="Landing.html">Home</a>
+								<a href="landing_page.php">Home</a>
 							</li>
 							<li>
 								<a href="#about">About</a>

@@ -40,11 +40,11 @@ $instDropDown= $_POST['instituteDropdown'];
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="Landing.html">My TA</a>
+					<a class="brand" href="landing_page.phpl">My TA</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active">
-								<a href="Landing.html">Home</a>
+								<a href="landing_page.php">Home</a>
 							</li>
 							<li>
 								<a href="#about">About</a>
@@ -143,13 +143,13 @@ $instDropDown= $_POST['instituteDropdown'];
 				<a class="btn" href="#" onclick="this.href='registration_form.php?name='+ document.getElementById('name').value +'&fName='+ document.getElementById('inputFName').value + '&inputStd=' + document.getElementById('inputStd').value + '&inputAdd=' + document.getElementById('inputAdd').value + '&inputMob=' + document.getElementById('inputMob').value + '&inputEmail=' + document.getElementById('inputEmail').value;">Modify Details&raquo;</a>
 			</div>
 			
+			<input type="hidden" name="inputRoll" id="inputRoll" value=<?php  echo $inputRoll;?>>
 			<input type="hidden" name="name" id="name" value=<?php  echo $name;?>>
 			<input type="hidden" name="inputFName" id="inputFName" value=<?php  echo $fName;?>>
 			<input type="hidden" name="inputStd" id="inputStd" value=<?php  echo $inputStd;?>>
 			<input type="hidden" name="inputAdd" id="inputAdd" value=<?php  echo $inputAdd;?>>
 			<input type="hidden" name="inputMob" id="inputMob" value=<?php  echo $inputMob;?>>
 			<input type="hidden" name="inputEmail" id="inputEmail"value=<?php  echo $inputEmail;?>>
-			<input type="hidden" name="inputRoll" id="inputRoll" value=<?php  echo $inputRoll;?>>
 			<input type="hidden" name="instituteDropdown" id="instituteDropdown" value=<?php  echo $instDropDown;?>>
 			
 		</form>
