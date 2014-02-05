@@ -29,7 +29,7 @@ $instituteArr = institute::getInstituteList();
 </ul>
 <!--Basic Nav Tabs END -->
 
-<form class="form-horizontal" action="model/search_controller.php" method="post">
+<form class="form-horizontal" action="controller/search_controller.php" method="post">
 	<label><h2>
 		<center>
 			Student Search

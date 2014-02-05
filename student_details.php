@@ -52,11 +52,11 @@ if (isset($_SESSION['studentSearchArr'])) {
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="brand" href="Landing.html">My TA</a>
+<a class="brand" href="landing_page.php">My TA</a>
 <div class="nav-collapse collapse">
 <ul class="nav">
 <li class="active">
-<a href="Landing.html">Home</a>
+<a href="landing_page.php">Home</a>
 </li>
 <li>
 <a href="#about">About</a>

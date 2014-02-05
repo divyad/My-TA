@@ -40,7 +40,7 @@ $instDropDown= $_POST['instituteDropdown'];
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="landing_page.phpl">My TA</a>
+					<a class="brand" href="landing_page.php">My TA</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active">
@@ -140,7 +140,7 @@ $instDropDown= $_POST['instituteDropdown'];
 				<button type="submit" class="btn btn-primary">
 					Confirm Registration
 				</button>
-				<a class="btn" href="#" onclick="this.href='registration_form.php?name='+ document.getElementById('name').value +'&fName='+ document.getElementById('inputFName').value + '&inputStd=' + document.getElementById('inputStd').value + '&inputAdd=' + document.getElementById('inputAdd').value + '&inputMob=' + document.getElementById('inputMob').value + '&inputEmail=' + document.getElementById('inputEmail').value;">Modify Details&raquo;</a>
+				<a class="btn" href="#" onclick="this.href='registration_form.php?name='+ document.getElementById('name').value +'&fName='+ document.getElementById('inputFName').value + '&inputStd=' + document.getElementById('inputStd').value + '&inputAdd=' + document.getElementById('inputAdd').value + '&inputMob=' + document.getElementById('inputMob').value + '&inputEmail=' + document.getElementById('inputEmail').value;">Back &raquo;</a>
 			</div>
 			
 			<input type="hidden" name="inputRoll" id="inputRoll" value=<?php  echo $inputRoll;?>>

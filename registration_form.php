@@ -76,9 +76,9 @@ unset($_SESSION['searchId']);
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputFName">Father's Name</label>
+				<label class="control-label" for="inputFName">Parent's Name</label>
 				<div class="controls">
-					<input type="text" name="inputFName" placeholder="Father's Name" required value="<?php
+					<input type="text" name="inputFName" placeholder="Parent's Name" required value="<?php
 					if (isset($_GET['fName'])) { echo $_GET['fName'];
 					}
 					?>">
@@ -112,7 +112,7 @@ unset($_SESSION['searchId']);
 			<div class="control-group">
 				<label class="control-label" for="inputAdd">Address</label>
 				<div class="controls">
-					<textarea rows="5" name="inputAdd" ><?php
+					<textarea rows="5" placeholder="Address" name="inputAdd" ><?php
 					if (isset($_GET['inputAdd'])) { echo $_GET['inputAdd'];
 					}
 					 ?></textarea>
@@ -123,7 +123,7 @@ unset($_SESSION['searchId']);
 				<div class="controls">
 					<div class="input-prepend">
 						<span class="add-on">91</span>
-						<input class="span2" name="inputMob" type="number"  Mobile Number" required value="<?php
+						<input class="span2" name="inputMob" type="tel" required value="<?php
 						if (isset($_GET['inputMob'])) { echo $_GET['inputMob'];
 						}
 						?>">

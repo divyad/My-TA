@@ -43,7 +43,7 @@ if (isset($_SESSION['studentSearchArr'])) {
 		</ul>
 		<!--Basic Nav Tabs END -->
 
-		<form class="form-horizontal" action="model/modify_controller.php" method="post">
+		<form class="form-horizontal" action="controller/modify_controller.php" method="post">
 			<label><h2>
 				<center>
 					Modify Details

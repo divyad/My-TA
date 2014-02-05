@@ -2,22 +2,6 @@
 
 require_once ('model/institute.php');
 
-if (isset($_POST['name'])) { $name = $_POST['name'];
-}
-
-if (isset($_POST['inputFName'])) { $fName = $_POST['inputFName'];
-}
-if (isset($_POST['inputStd'])) { $inputStd = $_POST['inputStd'];
-}
-if (isset($_POST['inputAdd'])) { $inputAdd = $_POST['inputAdd'];
-}
-if (isset($_POST['inputMob'])) { $inputMob = $_POST['inputMob'];
-}
-if (isset($_POST['inputEmail'])) { $inputEmail = $_POST['inputEmail'];
-}
-if (isset($_POST['inputRoll'])) { $inputRoll = $_POST['inputRoll'];
-}
-
 require_once ('/header.php');
 
 $instituteArr = institute::getInstituteList();
@@ -75,7 +59,7 @@ unset($_SESSION['searchId']);
 			</center></h2></label>
 		<br />
 		<br />
-		<form class="form-inline" action="registration_confirm.php" method="post" >
+		<form class="form-inline" action="result_home.php" method="post" >
 
 			<select name="instituteDropdown">
 
@@ -88,30 +72,15 @@ unset($_SESSION['searchId']);
 				?>
 			</select>
 
-			<input type="text" name="inputExamName" class="inputExamName" placeholder="Exam Name" required value="<?php
-			if (isset($_GET['name'])) { echo $_GET['name'];
-			}
-			?>">
+			<input type="text" name="inputExamName" class="inputExamName" placeholder="Exam Name" required >
 
-			<input type="text" name="inputSubject" placeholder="Subject" required value="<?php
-			if (isset($_GET['fName'])) { echo $_GET['fName'];
-			}
-			?>">
+			<input type="text" name="inputSubject" placeholder="Subject" required >
 
-			<input type="text" name="inputBatch" placeholder="Class or Batch name" required value="<?php
-			if (isset($_GET['fName'])) { echo $_GET['fName'];
-			}
-			?>">
+			<input type="text" name="inputBatch" placeholder="Class or Batch name" required >
 
-			<input type="number" min="8" max="12" name="inputStd" placeholder="Standard" required value="<?php
-			if (isset($_GET['inputStd'])) { echo $_GET['inputStd'];
-			}
-			?>">
+			<input type="number" min="8" max="12" name="inputStd" placeholder="Standard" required >
 			<i class="icon-calendar"></i>
-			<input type="number" min="8" max="12" name="inputExamDate" placeholder="Exam Date" required value="<?php
-			if (isset($_GET['inputStd'])) { echo $_GET['inputStd'];
-			}
-			?>">
+			<input type="number" min="8" max="12" name="inputExamDate" placeholder="Exam Date" required >
 
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary">
@@ -121,7 +90,17 @@ unset($_SESSION['searchId']);
 			</div>
 			
 			
-<table id="myTable" border="1">
+<table id="myTable" border="1"><br /><tr>
+			<th>
+			Student Name
+			</th>
+			<th>
+			Marks
+			</th>
+			<th>
+			Remarks
+			</th>
+			</tr>
   <tr>
     <td>cell 1</td>
     <td>cell 2</td>
