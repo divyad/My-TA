@@ -10,9 +10,9 @@ if (isset($_SESSION['studentSearchArr'])) {
 
 $instituteArr = institute::getInstituteList();
 
-if (isset($_GET['subject'])) { $subject = $_GET['subject']; }
+if (isset($_GET['subject'])) { $subject = $_GET['subject']; } else { $subject="";}
 
-if (isset($_GET['message'])) { $message = $_GET['message'];}
+if (isset($_GET['message'])) { $message = $_GET['message'];} else { $message="";}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,16 +88,16 @@ if (isset($_GET['message'])) { $message = $_GET['message'];}
 			</center></h2></label>
 		<br />
 		<br />
-		<form class="form-signin" action="homePage.php" method="post">
+		<form class="form-signin" action="https://www.google.co.in" method="post" >
 
-			<input type="text" id="recipientsTxt" name="recipients" class="input-block-level" placeholder="Recipients" required rel="popover" data-content=" replace $xyz$ (if any) with respective content"  data-original-title="Note">
+			<input type="text" id="recipientsTxt" name="recipients" class="input-block-level" placeholder="Recipients" required rel="popover" >
 			<br />
-			<input type="text" id="subjectTxt" name="subject" class="input-block-level" placeholder="Subject" required rel="popover" data-content="Please replace $xyz$ (if any) with respective content"  data-original-title="Note" value="<?php  echo $subject; ?>">
+			<input type="text" id="subjectTxt" name="subject" class="input-block-level" placeholder="Subject" required rel="popover"  value="<?php  echo $subject; ?>">
+			Schedule Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                     <input type="date" name="bday" required >
 			<textarea rows="15" style="width: 635px;" placeholder="Message" id="messageTxt" rel="popover" data-content="Please replace $xyz$ (if any) with respective content"  data-original-title="Note"><?php  echo $message; ?></textarea>
 <br />			<center>
-				<button id="sendBtn" class="btn btn-large btn-primary" type="submit" rel="popover" data-content="Once message send cannot be undone" data-original-title="Note">
-					Send
-				</button>
+				<input id="sendBtn" class="btn btn-large btn-primary" value="send" type="submit" rel="popover" data-content="Once message send cannot be undone" data-original-title="Note">
+					
 			</center>
 		</form>
 

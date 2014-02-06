@@ -87,10 +87,15 @@ unset($_SESSION['searchId']);
 			<div class="control-group">
 				<label class="control-label" for="inputStd">Standard</label>
 				<div class="controls">
-					<input type="number" min="8" max="12" name="inputStd" placeholder="Standard" required value="<?php
+					<select name="inputStd" required value="<?php
 					if (isset($_GET['inputStd'])) { echo $_GET['inputStd'];
 					}
 					?>">
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
 				</div>
 			</div>
 			
@@ -131,7 +136,7 @@ unset($_SESSION['searchId']);
 						</div>
 						</div>
 						<div class="control-group">
-						<label class="control-label" for="inputEmail">Email Id</label>
+						<label class="control-label" for="inputEmail">Email ID</label>
 						<div class="controls">
 						<div class="input-prepend">
 						<span class="add-on"><i class="icon-envelope"></i></span>
