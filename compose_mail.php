@@ -96,8 +96,7 @@ if (isset($_GET['message'])) { $message = $_GET['message'];} else { $message="";
 			Schedule Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                     <input type="date" name="bday" required >
 			<textarea rows="15" style="width: 635px;" placeholder="Message" id="messageTxt" rel="popover" data-content="Please replace $xyz$ (if any) with respective content"  data-original-title="Note"><?php  echo $message; ?></textarea>
 <br />			<center>
-				<input id="sendBtn" class="btn btn-large btn-primary" value="send" type="submit" rel="popover" data-content="Once message send cannot be undone" data-original-title="Note">
-					
+				<a id="sendBtn" class="btn btn-primary btn-large" href="homePage.php" data-content="Once message send cannot be undone" data-original-title="Note" rel="popover">Send</a>	
 			</center>
 		</form>
 

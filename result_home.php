@@ -24,6 +24,19 @@ unset($_SESSION['searchId']);
 				padding-top: 60px;
 				padding-bottom: 40px;
 			}
+			.form-signin {
+				max-width: 300px;
+				padding: 19px 29px 29px;
+				margin: 0 auto 20px;
+				background-color: #fff;
+				border: 1px solid #e5e5e5;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+				-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+				box-shadow: 0 1px 2px rgba(0,0,0,.05);
+			}
 		</style>
 		<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -48,69 +61,48 @@ unset($_SESSION['searchId']);
 				<a href="#">Result Home</a>
 			</li>
 			<li>
-				<a href="student_search.php">Search</a>
+				<a href="result_search.php">Search</a>
 			</li>
 
 		</ul>
 		<!--Basic Nav Tabs END -->
+		<div class="container">
 		<label><h2>
 			<center>
 				Result Declaration Home
 			</center></h2></label>
 		<br />
 		<br />
-		<form class="form-inline" action="result_home.php" method="post" >
-
-			<select name="instituteDropdown">
-
-				<?php
-				foreach ($instituteArr as $row) {
-
-					echo '<option value="' . $row['institute_id'] . '">' . $row['institute_name'] . '</option>';
-
-				}
-				?>
-			</select>
-
-			<input type="text" name="inputExamName" class="inputExamName" placeholder="Exam Name" required >
-
-			<input type="text" name="inputSubject" placeholder="Subject" required >
-
-			<input type="text" name="inputBatch" placeholder="Class or Batch name" required >
-
-			<input type="number" min="8" max="12" name="inputStd" placeholder="Standard" required >
-			<i class="icon-calendar"></i>
-			<input type="number" min="8" max="12" name="inputExamDate" placeholder="Exam Date" required >
-
+		<form class="form-signin" action="result_filldetails.php" method="post" >
+			<center>
+				
+				    <input type="text" name="inputExamName" class="inputExamName" placeholder="Exam Name" required ><br /><br />
+				
+			
+				    <input type="text" name="inputSubject" placeholder="Subject" required ><br /><br />
+				    
+				   
+					<input type="text" name="inputBatch" placeholder="Class or Batch name" required ><br /><br />
+					
+					<select name="inputStd" required >
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option></select><br /><br />
+					
+					<input type="date" name="inputExamDate" required ><br /><br />
+			</center>
+					
 			<div class="form-actions">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type="submit" class="btn btn-primary">
 					Save & Enter Marks
 				</button>
 				<a class="btn" href="HomePage.php">Cancel</a>
+				
 			</div>
-			
-			
-<table id="myTable" border="1"><br /><tr>
-			<th>
-			Student Name
-			</th>
-			<th>
-			Marks
-			</th>
-			<th>
-			Remarks
-			</th>
-			</tr>
-  <tr>
-    <td>cell 1</td>
-    <td>cell 2</td>
-  </tr>
-  <tr>
-    <td>cell 3</td>
-    <td>cell 4</td>
-  </tr>
-</table>
 		</form>
-
-	</body>
+		<div class="container">
+    </body>
 </html>
